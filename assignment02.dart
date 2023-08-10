@@ -12,8 +12,6 @@ Rounded average: 80
 Passed
 
 */
-import 'dart:math';
-
 void main() {
   List<int> grades = [85, 92, 78, 65, 88, 72];
 
