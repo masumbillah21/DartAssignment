@@ -24,7 +24,7 @@ void main() {
   double average = sum / grades.length;
 
   // Converted to int as sample output does not have decimal value
-  print("Student's average grade: ${average.toInt()}");
+  print("Student's average grade: $average");
   print("Rounded average: ${average.toStringAsFixed(0)}");
 
   if (average >= 70) {
