@@ -56,7 +56,7 @@ class Car {
     return now.year - this._year;
   }
 
-  // As all out are in same format that's why overriden toString to get the exact out form here
+  // As all output are in same format that's why overriden toString to get the exact output form here
   @override
   String toString() {
     return 'Car $numberOfCars: ${this.getBrand()} ${this.getModel()} ${this.getYear()} Miles: ${this.getMilesDriven()} Age: ${this.getAge()}';
