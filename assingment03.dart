@@ -6,16 +6,19 @@ class Car {
     ●     year (int),
     ●     milesDriven (double).
   */
-  String brand;
-  String model;
-  int year;
-  double milesDriven = 0;
+  late String _brand;
+  late String _model;
+  late int _year;
+  late double _milesDriven = 0;
 
   // Include a static property numberOfCars.
   static int numberOfCars = 0;
 
-  Car({required this.brand, required this.model, required this.year}) {
+  Car({required brand, required model, required year}) {
     // Track the total number of Car objects created..
+    this._brand = brand;
+    this._model = model;
+    this._year = year;
     numberOfCars++;
   }
 
@@ -24,33 +27,33 @@ class Car {
   // drive(double miles):
   // Increases the milesDriven property by the provided distance value, simulating driving.
   void drive(double miles) {
-    this.milesDriven += miles;
+    this._milesDriven += miles;
   }
 
   // ●     getMilesDriven(): Retrieves the current milesDriven value.
   double getMilesDriven() {
-    return this.milesDriven;
+    return this._milesDriven;
   }
 
   // ●     getBrand(): Retrieves the brand of the car.
   String getBrand() {
-    return this.brand;
+    return this._brand;
   }
 
   // ●     getModel(): Retrieves the model of the car.
   String getModel() {
-    return this.model;
+    return this._model;
   }
 
   // ●     getYear(): Retrieves the manufacturing year of the car.
   int getYear() {
-    return this.year;
+    return this._year;
   }
 
   // getAge(): Calculates and returns the age of the car.
   int getAge() {
     var now = new DateTime.now();
-    return now.year - this.year;
+    return now.year - this._year;
   }
 
   // As all output are in same format that's why overridden
