@@ -72,9 +72,11 @@ void main() {
   honda.drive(8000);
   print(honda.toString());
 
-  /// Car 3: Ford F-150 2015 Miles: 15000 Age: 8 Total number of cars created: 3
+  /// Car 3: Ford F-150 2015 Miles: 15000 Age: 8
   Car ford = Car(brand: "Ford", model: "F-150", year: 2015);
   ford.drive(15000);
   print(ford.toString());
+
+  // Total number of cars created: 3
   print("Total number of cars created: ${Car.numberOfCars}");
 }
