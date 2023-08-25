@@ -16,7 +16,7 @@ abstract class Account {
 
   void deposit(double amount) {
     balance += amount;
-    print("$amount deposited successfully");
+    print("$amount successfully deposited.");
   }
 
   void withdraw(double amount);
@@ -48,8 +48,9 @@ class SavingsAccount extends Account {
       balance -= amount;
       balance *= (1 + interestRate);
       print("$amount successfully withdrawn");
+      print('Savings Account Balance after withdrawal plus interest: $balance');
     } else {
-      print('Insufficient balance');
+      print('Insufficient balance!!');
     }
   }
 }
@@ -77,6 +78,7 @@ class CurrentAccount extends Account {
     if (amount <= balance + overdraftLimit) {
       balance -= amount;
       print("$amount successfully withdrawn");
+      print('Current Account Balance after withdrawal: $balance');
     } else {
       print('Insufficient funds. Exceeds overdraft limit.');
     }
@@ -110,8 +112,7 @@ void main() {
 
   // Withdraw from SavingsAccount
   savings.withdraw(200.0);
-  print(
-      'Savings Account Balance after withdrawal plus interest: ${savings.balance}');
+
   print("\n\n======Current Account======");
   // Create a CurrentAccount instance
   // Account number, initial balance, overdraft limit
@@ -129,5 +130,4 @@ void main() {
 
   // Withdraw from CurrentAccount
   current.withdraw(2500.0); // Exceeding overdraft limit
-  print('Current Account Balance after withdrawal: ${current.balance}');
 }
