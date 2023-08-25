@@ -16,6 +16,7 @@ abstract class Account {
 
   void deposit(double amount) {
     balance += amount;
+    print("$amount deposited successfully");
   }
 
   void withdraw(double amount);
@@ -46,6 +47,7 @@ class SavingsAccount extends Account {
     if (amount <= balance) {
       balance -= amount;
       balance *= (1 + interestRate);
+      print("$amount successfully withdrawn");
     } else {
       print('Insufficient balance');
     }
@@ -74,6 +76,7 @@ class CurrentAccount extends Account {
   void withdraw(double amount) {
     if (amount <= balance + overdraftLimit) {
       balance -= amount;
+      print("$amount successfully withdrawn");
     } else {
       print('Insufficient funds. Exceeds overdraft limit.');
     }
@@ -91,13 +94,15 @@ the account number, initial balance, and overdraft limit.
 ●       Use the instance to perform operations like depositing and withdrawing.
 */
 void main() {
+  print("======Savings Account======");
   // Create a SavingsAccount instance
   var savings = SavingsAccount(
     accountNumber: 12345,
     balance: 1000.0,
     interestRate: 0.05,
   );
-  print('Savings Account Initial balance: ${savings.balance}');
+  print(
+      'Savings Account Initial balance: ${savings.balance} and Interest Rate: ${savings.interestRate}');
 
   // Deposit into SavingsAccount
   savings.deposit(500.0);
@@ -107,7 +112,7 @@ void main() {
   savings.withdraw(200.0);
   print(
       'Savings Account Balance after withdrawal plus interest: ${savings.balance}');
-
+  print("\n\n======Current Account======");
   // Create a CurrentAccount instance
   // Account number, initial balance, overdraft limit
   var current = CurrentAccount(
@@ -115,7 +120,8 @@ void main() {
     balance: 2000.0,
     overdraftLimit: 1000.0,
   );
-  print('Current Account Initial balance: ${current.balance}');
+  print(
+      'Current Account Initial balance: ${current.balance} and overdraft: ${current.overdraftLimit}');
 
   // Deposit into CurrentAccount
   current.deposit(800.0);
